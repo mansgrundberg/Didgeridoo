@@ -43,7 +43,6 @@ public class SpotifyConsumer {
     	} catch (Exception e) {
 			System.out.println(e);
 		}
-    	
     }
 
     public static void main(String[] args) {

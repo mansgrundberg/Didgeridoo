@@ -8,6 +8,7 @@ public class Song {
 	private String startTime;
 	private String stopTime;
 	private String spotifyUrl;
+	private String youtubeUrl;
 	
 	public Song () {
 		
