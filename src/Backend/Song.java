@@ -7,8 +7,12 @@ public class Song {
 	private String description;
 	private String startTime;
 	private String stopTime;
-	private String spotifyUrl;
+	private String trackUrl;
+	private String aristUrl;
+	private String albumUrl;
+	private String previewUrl;
 	private String youtubeUrl;
+	
 	
 	public Song () {
 		
@@ -38,10 +42,6 @@ public class Song {
 		this.stopTime = stopTime;
 	}
 
-	public void setSpotifyUrl(String spotifyUrl) {
-		this.spotifyUrl = spotifyUrl;
-	}
-
 	public String getTitle() {
 		return title;
 	}
@@ -64,9 +64,5 @@ public class Song {
 
 	public String getStopTime() {
 		return stopTime;
-	}
-
-	public String getSpotifyUrl() {
-		return spotifyUrl;
 	}
 }
