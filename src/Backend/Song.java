@@ -7,11 +7,8 @@ public class Song {
 	private String description;
 	private String startTime;
 	private String stopTime;
-	private String trackUrl;
-	private String aristUrl;
-	private String albumUrl;
-	private String previewUrl;
-	private String youtubeUrl;
+	private String spotifyLink; // Inbäddningsbar länk som visar spotifyspelare för given låt. Bäddas in i <iframe></iframe>
+	private String youtubeLink; // Inbäddningsbar länk som visar youtubespelare för given låt. Bäddas in i <iframe></iframe>
 	
 	
 	public Song () {
@@ -64,5 +61,13 @@ public class Song {
 
 	public String getStopTime() {
 		return stopTime;
+	}
+	
+	public void setSpotifyLink(String spotifyLink) {
+		this.spotifyLink = spotifyLink;
+	}
+	
+	public void setYoutubeLink(String youtubeLink) {
+		this.youtubeLink = youtubeLink;
 	}
 }
