@@ -10,7 +10,21 @@ import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
 
 public class SRConsumer {
-
+	
+	/*
+	 * CHANNEL IDS:
+	 * P1: 132
+	 * P2: 163
+	 * P3: 164
+	 * P4 Blekinge: 213
+	 * P4 Dalarna: 223
+	 * P4 Gotland: 205
+	 * P4 Gävleborg: 210
+	 * P4 Göteborg: 212
+	 * P4 Halland: 220
+	 * P4 Jämtland: 200
+	 */
+	
 	// Change method to return suitable object
 	public static JSONObject fetchPlaylist(int channelID) {
 		try {
@@ -26,6 +40,7 @@ public class SRConsumer {
 			return null;
 		}
 	}
+	
 	
 //	public static void main(String[] args) {
 //		System.out.println(fetchPlaylist(132));
