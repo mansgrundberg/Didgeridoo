@@ -1,5 +1,7 @@
 package Backend;
 
+import java.sql.Date;
+
 public class Song {
 	private String title;
 	private String artist;
@@ -36,5 +38,9 @@ public class Song {
 	
 	public String getYoutubeLink() {
 		return this.youtubeLink;
+	}
+	
+	public String getStarttimeutc() {
+		return this.starttimeutc;
 	}
 }

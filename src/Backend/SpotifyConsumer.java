@@ -41,13 +41,14 @@ public class SpotifyConsumer {
 					.queryString("limit", 1)
 					.asJson();
 
+			System.out.println(response.getBody());
 			JsonNode json = response.getBody();
 			JSONObject obj = json.getObject();
 			Unirest.shutdown();
 			return embedLink + obj.getJSONObject("tracks").getJSONArray("items").getJSONObject(0).getString("id");
 		} catch (Exception e) {
 			System.out.println(e);
-			return null;
+			return "";
 		}
 	}
 

@@ -25,14 +25,13 @@ public class SRConsumer {
 	 * P4 Jämtland: 200
 	 */
 
-	// Change method to return suitable object
 	public static ResponseObject fetchPlaylist(int channelID) {
 		try {
 			HttpResponse<JsonNode> response = Unirest.get("http://api.sr.se/api/v2/playlists/rightnow?")
 					.queryString("channelid", channelID)
 					.queryString("format", "json")
 					.asJson();
-
+			System.out.println(response.getBody());
 			JsonNode json = response.getBody();
 			Unirest.shutdown();
 			return new Gson().fromJson(json.getObject().getJSONObject("playlist").toString(), ResponseObject.class);

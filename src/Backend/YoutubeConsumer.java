@@ -28,7 +28,7 @@ public class YoutubeConsumer {
 			return embedLink + items.getJSONObject(0).getJSONObject("id").getString("videoId");
 		} catch (Exception e) {
 			System.out.println(e);
-			return null;
+			return "";
 		}
 	}
 
