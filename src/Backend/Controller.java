@@ -7,7 +7,6 @@ public class Controller {
 	public void fetchResult(int channelID) {
 		JSONObject playlist = SRConsumer.fetchPlaylist(channelID);
 		ResponseObject res = initResponse(playlist);
-		System.out.println(res.getPreviousSong().getArtist());
 	}
 	
 	private ResponseObject initResponse(JSONObject playlist) {

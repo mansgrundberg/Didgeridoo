@@ -42,7 +42,7 @@ public class SRConsumer {
 	}
 	
 	
-//	public static void main(String[] args) {
-//		System.out.println(fetchPlaylist(132));
-//	}
+	public static void main(String[] args) {
+		System.out.println(fetchPlaylist(132));
+	}
 }

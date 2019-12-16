@@ -28,16 +28,17 @@ public class SpotifyConsumer {
         }
     }
     
-    private static void fetchResult(String auth) {
+    // Fixa till söksträngen den e katastrof
+    private static void fetchResult(String auth, String track, String artist, String album) {
     	try {
     		Options.refresh();
-    		System.out.println("HEj");
-    	HttpResponse<JsonNode> response = Unirest.get("https://api.spotify.com/v1/tracks/2TpxZ7JUBn3uw46aR7qd6V")
+    		HttpResponse<JsonNode> response = Unirest.get("https://api.spotify.com/v1/search?q=" + "track:" + track.replaceAll(" ", "%20") + "%20artist:" + artist.replaceAll(" ", "%20"))
     			.header("Accept", "application/json")
         		.header("Authorization", "Bearer " + auth)
+        		.queryString("type", "track")
+        		.queryString("limit", 1)
                 .asJson();
-    	System.out.println("lol");
-    	System.out.println(response.getBody() + "hej");
+    	System.out.println(response.getBody());
     	Unirest.shutdown();
     	} catch (Exception e) {
 			System.out.println(e);
@@ -49,7 +50,7 @@ public class SpotifyConsumer {
         String client_id = "fb435518dac2475388699e465c3ad740";
         String client_secret = "e4f91cb42afc40cbba822bd73b81801b";
         String token  = fetchToken(client_id,client_secret);
-        fetchResult(token);
+        fetchResult(token, "Folsom Prison Blues", "Johnny Cash", "");
     }
 
 }
