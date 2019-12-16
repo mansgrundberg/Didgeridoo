@@ -2,6 +2,8 @@ package Backend;
 
 import java.io.IOException;
 
+import org.json.JSONObject;
+
 import com.mashape.unirest.http.HttpResponse;
 import com.mashape.unirest.http.JsonNode;
 import com.mashape.unirest.http.Unirest;
@@ -10,20 +12,22 @@ import com.mashape.unirest.http.exceptions.UnirestException;
 public class SRConsumer {
 
 	// Change method to return suitable object
-	private static void fetchResult(int channelID) {
+	public static JSONObject fetchPlaylist(int channelID) {
 		try {
-			HttpResponse<JsonNode> response = Unirest.get("http://api.sr.se/api/v2/channels/132")
-					//.queryString("channelid", channelID)
+			HttpResponse<JsonNode> response = Unirest.get("http://api.sr.se/api/v2/playlists/rightnow?")
+					.queryString("channelid", channelID)
 					.queryString("format", "json")
 					.asJson();
 			System.out.println(response.getBody());
+			JsonNode json = response.getBody();
 			Unirest.shutdown();
+			return json.getObject().getJSONObject("playlist");
 		} catch (UnirestException | IOException e) {
-			// TODO: handle exception
+			return null;
 		}
 	}
 	
-	public static void main(String[] args) {
-		fetchResult(132);
-	}
+//	public static void main(String[] args) {
+//		System.out.println(fetchPlaylist(132));
+//	}
 }
