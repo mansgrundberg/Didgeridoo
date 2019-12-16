@@ -2,15 +2,15 @@ package Backend;
 
 import java.io.IOException;
 
-import org.json.JSONObject;
 
+import com.google.gson.Gson;
 import com.mashape.unirest.http.HttpResponse;
 import com.mashape.unirest.http.JsonNode;
 import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
 
 public class SRConsumer {
-	
+
 	/*
 	 * CHANNEL IDS:
 	 * P1: 132
@@ -24,25 +24,20 @@ public class SRConsumer {
 	 * P4 Halland: 220
 	 * P4 Jämtland: 200
 	 */
-	
+
 	// Change method to return suitable object
-	public static JSONObject fetchPlaylist(int channelID) {
+	public static ResponseObject fetchPlaylist(int channelID) {
 		try {
 			HttpResponse<JsonNode> response = Unirest.get("http://api.sr.se/api/v2/playlists/rightnow?")
 					.queryString("channelid", channelID)
 					.queryString("format", "json")
 					.asJson();
-			System.out.println(response.getBody());
+
 			JsonNode json = response.getBody();
 			Unirest.shutdown();
-			return json.getObject().getJSONObject("playlist");
+			return new Gson().fromJson(json.getObject().getJSONObject("playlist").toString(), ResponseObject.class);
 		} catch (UnirestException | IOException e) {
 			return null;
 		}
-	}
-	
-	
-	public static void main(String[] args) {
-		System.out.println(fetchPlaylist(213));
 	}
 }

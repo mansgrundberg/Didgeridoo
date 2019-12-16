@@ -12,8 +12,8 @@ public class YoutubeConsumer {
 	private static final String key = "AIzaSyA-suXDusGt8FrwpFXpackliwj2fK0wjJ4";
 	private static final String embedLink = "https://www.youtube.com/embed/";
 
-	// Returns and embeddable player for the most popular video given the search string
-	private static String searchVideo(String track, String artist) {
+	// Returnerar en inbäddningsbar youtubespelare för den mest populära videon givet sökning. Bäddas in med <iframe></iframe>
+	public static String searchVideo(String track, String artist) {
 		try {
 			Options.refresh();
 			HttpResponse<JsonNode> response = Unirest.get("https://www.googleapis.com/youtube/v3/search?")

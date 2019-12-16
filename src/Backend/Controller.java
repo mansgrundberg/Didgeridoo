@@ -1,35 +1,23 @@
 package Backend;
 
-import org.json.JSONObject;
-
 public class Controller {
-	
-	public void fetchResult(int channelID) {
-		JSONObject playlist = SRConsumer.fetchPlaylist(channelID);
-		ResponseObject res = initResponse(playlist);
+
+	public ResponseObject fetchResult(int channelID) {
+		ResponseObject res = SRConsumer.fetchPlaylist(channelID);
+		getLinks(res.getPreviousSong());
+		getLinks(res.getNextSong());
+		return null;
 	}
-	
-	private ResponseObject initResponse(JSONObject playlist) {
-		ResponseObject res = new ResponseObject();
-		res.setPreviousSong(addSong(playlist.getJSONObject("previoussong")));
-		res.setNextSong(addSong(playlist.getJSONObject("nextsong")));
-		return res;
+
+	private void getLinks(Song song) {
+		song.setSpotifyLink(SpotifyConsumer.fetchResult(song.getTitle(), song.getArtist()));
+		song.setYoutubeLink(YoutubeConsumer.searchVideo(song.getTitle(), song.getArtist()));
+		System.out.println(song.getTitle() + " " + song.getSpotifyLink() + " " + song.getYoutubeLink());
 	}
-	
-	private Song addSong(JSONObject song) {
-		Song s = new Song();
-		s.setTitle(song.getString("title"));
-		s.setArtist(song.getString("artist"));
-		s.setAlbum(song.getString("albumname"));
-		s.setDescription(song.getString("description"));
-		s.setStartTime(song.getString("starttimeutc"));
-		s.setStopTime(song.getString("stoptimeutc"));
-		return s;
-	}
-	
+
 	public static void main(String[] args) {
 		Controller c = new Controller();
-		c.fetchResult(163);
+		c.fetchResult(212);
 	}
 
 }
