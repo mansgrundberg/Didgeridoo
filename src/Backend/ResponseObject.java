@@ -1,27 +1,33 @@
 package Backend;
 
 public class ResponseObject {
-	private Song previousSong;
-	private Song nextSong;
+	private Song previoussong;
+	private Song nextsong;
+	private Song song;
 	
 	public ResponseObject() {
 		 
 	}
 	
 	public Song getPreviousSong() {
-		return this.previousSong;
+		return this.previoussong;
 	}
 	
 	public Song getNextSong() {
-		return this.nextSong;
+		return this.nextsong;
 	}
-
+	
+	public Song getSong() {
+		return this.song;
+	}
+	
+	// För testning. Kan huttas senare.
 	public void setPreviousSong(Song previousSong) {
-		this.previousSong = previousSong;
+		this.previoussong = previousSong;
 	}
-
+	
+	// För testning. Kan huttas senare.
 	public void setNextSong(Song nextSong) {
-		this.nextSong = nextSong;
+		this.nextsong = nextSong;
 	}
-
 }
