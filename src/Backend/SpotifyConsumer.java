@@ -21,7 +21,7 @@ public class SpotifyConsumer {
             // TODO: handle exception
         }
     }
-
+    
     public static void main(String[] args) {
         String client_id = "fb435518dac2475388699e465c3ad740";
         String client_secret = "e4f91cb42afc40cbba822bd73b81801b";
