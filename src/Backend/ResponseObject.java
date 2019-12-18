@@ -1,10 +1,10 @@
 package Backend;
 
 public class ResponseObject {
+	private Channel channel;
 	private Song previoussong;
 	private Song nextsong;
 	private Song song;
-	private String stream;
 	
 	public ResponseObject() {
 		 
@@ -32,11 +32,7 @@ public class ResponseObject {
 		this.nextsong = nextSong;
 	}
 	
-	public void setStream(String stream) {
-		this.stream = stream;
-	}
-	
-	public String getStream() {
-		return this.stream;
+	public void setChannel(Channel channel) {
+		this.channel = channel;
 	}
 }

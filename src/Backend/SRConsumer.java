@@ -9,6 +9,7 @@ import com.mashape.unirest.http.HttpResponse;
 import com.mashape.unirest.http.JsonNode;
 import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
+import com.mashape.unirest.http.options.Options;
 
 public class SRConsumer {
 
@@ -20,14 +21,15 @@ public class SRConsumer {
 
 	public static Channel fetchStream(int channelID) {
 		try {
+			Options.refresh();
 			HttpResponse<JsonNode> response = Unirest.get("http://api.sr.se/api/v2/channels/" + channelID)
 					.queryString("format", "json")
 					.asJson();
-
+			
 			JsonNode json = response.getBody();
 			JSONObject obj = json.getObject().getJSONObject("channel");
 			Unirest.shutdown();
-			return new Channel(obj.getString("image"), obj.getJSONObject("liveaudio").getString("url"));
+			return new Channel(obj.getString("name"), obj.getString("image"), obj.getJSONObject("liveaudio").getString("url"));
 		} catch (UnirestException | IOException e) {
 			System.out.println(e);
 			return null;
@@ -41,7 +43,6 @@ public class SRConsumer {
 					.queryString("format", "json")
 					.asJson();
 
-			System.out.println(response.getBody());
 			JsonNode json = response.getBody();
 			Unirest.shutdown();
 			return new Gson().fromJson(json.getObject().getJSONObject("playlist").toString(), ResponseObject.class);
