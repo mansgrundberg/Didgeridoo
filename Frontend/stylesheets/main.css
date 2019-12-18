@@ -39,6 +39,11 @@
 			padding: 10px;
 		}
 
+		.sr-iframe{
+			max-height: 300px;
+			max-width: 300px;
+		}
+
 		.radio-links{
 			color: white;
 			text-shadow: 0.1vw 0.2vh 0 rgba(00,00,00, 0.8);
@@ -60,6 +65,18 @@
 			padding: 0px;
 		}
 
+		.spotify-iframe{
+			height: 380px;
+			max-width: 300px;
+		}
+
+		.spotify-present-iframe{
+			height: 22vw;
+			width: 16vw;
+			min-width: 16vw;
+			min-height: 22vw;
+		}
+
 		.youtube-players{
 			display: flex;
 			flex-direction: row;
@@ -68,6 +85,15 @@
 			align-items: center;
 			
 			padding: 0px;
+		}
+
+		.youtube-present-iframe{
+			height: 22vw;
+			width: 40vw;
+		}
+		.youtube-iframe{
+			max-height: 300px;
+			width: 300px;
 		}
 		
 		#main { 
