@@ -41,7 +41,6 @@ public class SpotifyConsumer {
 					.queryString("limit", 1)
 					.asJson();
 
-			System.out.println(response.getBody());
 			JsonNode json = response.getBody();
 			JSONObject obj = json.getObject();
 			Unirest.shutdown();
@@ -51,9 +50,4 @@ public class SpotifyConsumer {
 			return "";
 		}
 	}
-
-	public static void main(String[] args) {
-		System.out.println(fetchResult("Folsom Prison Blues", "Johnny Cash"));
-	}
-
 }
