@@ -27,7 +27,7 @@ public class YoutubeConsumer {
 			Unirest.shutdown();
 			return embedLink + items.getJSONObject(0).getJSONObject("id").getString("videoId");
 		} catch (Exception e) {
-			System.out.println(e);
+			System.out.println(e + " Youtube");
 			return "";
 		}
 	}

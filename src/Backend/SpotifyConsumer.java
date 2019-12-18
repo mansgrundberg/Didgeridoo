@@ -15,6 +15,7 @@ public class SpotifyConsumer {
 
 	private static String fetchToken(String client_id, String client_secret) {
 		try {
+			Options.refresh();
 			HttpResponse<JsonNode> response = Unirest.post("https://accounts.spotify.com/api/token")
 					.basicAuth(client_id, client_secret)
 					.field("grant_type","client_credentials")
@@ -44,9 +45,10 @@ public class SpotifyConsumer {
 			JsonNode json = response.getBody();
 			JSONObject obj = json.getObject();
 			Unirest.shutdown();
+			System.out.println(response.getBody());
 			return embedLink + obj.getJSONObject("tracks").getJSONArray("items").getJSONObject(0).getString("id");
 		} catch (Exception e) {
-			System.out.println(e);
+			System.out.println(e + " Spotify");
 			return "";
 		}
 	}

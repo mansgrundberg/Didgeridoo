@@ -38,6 +38,7 @@ public class SRConsumer {
 
 	public static ResponseObject fetchPlaylist(int channelID) {
 		try {
+			Options.refresh();
 			HttpResponse<JsonNode> response = Unirest.get("http://api.sr.se/api/v2/playlists/rightnow?")
 					.queryString("channelid", channelID)
 					.queryString("format", "json")
