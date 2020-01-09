@@ -1,6 +1,21 @@
 var start = true;
 
+//Hämta String liveaudio och sätt .sr-iframe src till liveaudio.  
+
 $(document).ready(function() {
+$.ajax({
+url: 'http://localhost:5000/220',
+type: "GET",
+dataType: "json",
+success: function (data) {
+    var iframe =  $('.sr-iframe');
+    var src = data['channel']['liveaudio'];
+    $(iframe).attr('src', src);
+    alert(data);
+}
+});
+   
+
     $('h3').click(function (event) {
         disco(this);
     });
