@@ -18,7 +18,12 @@ public class SRConsumer {
 	 * Gotland: 205 P4 Gävleborg: 210 P4 Göteborg: 212 P4 Halland: 220 P4 Jämtland:
 	 * 200
 	 */
-
+	
+	
+	/*
+	 * Method which fetches the chosen channels name, logo and an URL to the live stream. 
+	 * Creates a Channel object with this information and returns it.
+	 */
 	public static Channel fetchStream(int channelID) {
 		try {
 			Options.refresh();
@@ -36,6 +41,10 @@ public class SRConsumer {
 		}
 	}
 
+	/*
+	 * Method which fetches a playlist from the specified channel with the previous, next song and if there is a currently playing song, the current song as well.
+	 * Returns the information as a ResponsObject.
+	 */
 	public static ResponseObject fetchPlaylist(int channelID) {
 		try {
 			Options.refresh();
