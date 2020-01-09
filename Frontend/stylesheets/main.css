@@ -121,6 +121,18 @@ body{
 	padding: 20px;
 	border: 0;
 }
+.spotify-prev-iframe{
+	height: 380px;
+	max-width: 300px;
+	padding: 20px;
+	border: 0;
+}
+.spotify-next-iframe{
+	height: 380px;
+	max-width: 300px;
+	padding: 20px;
+	border: 0;
+}
 .spotify-iframe:focus{
 	outline: 0;
 }
