@@ -31,10 +31,4 @@ public class YoutubeConsumer {
 			return "";
 		}
 	}
-
-	public static void main(String[] args) {
-		String id = searchVideo("Smoke on the water", "Deep Purple");
-		System.out.println(id);
-	}
-
 }

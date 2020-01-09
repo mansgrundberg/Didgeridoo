@@ -1,6 +1,9 @@
 package Backend;
 
 import java.sql.Date;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.TimeZone;
 
 public class Song {
 	private String title;
@@ -42,5 +45,17 @@ public class Song {
 	
 	public String getStarttimeutc() {
 		return this.starttimeutc;
+	}
+	
+	public void convertDates() {
+		Calendar calendar = Calendar.getInstance();
+		SimpleDateFormat format = new SimpleDateFormat("dd-MM-yy HH:mm:ss");
+		format.setTimeZone(TimeZone.getTimeZone("CET"));
+		
+		calendar.setTimeInMillis(Long.parseLong(starttimeutc.replaceAll("[^0-9]", "")));
+		starttimeutc = format.format(calendar.getTime());
+		
+		calendar.setTimeInMillis(Long.parseLong(stoptimeutc.replaceAll("[^0-9]", "")));
+		stoptimeutc = format.format(calendar.getTime());
 	}
 }

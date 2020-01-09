@@ -25,7 +25,7 @@ public class SRConsumer {
 			HttpResponse<JsonNode> response = Unirest.get("http://api.sr.se/api/v2/channels/" + channelID)
 					.queryString("format", "json")
 					.asJson();
-			
+
 			JsonNode json = response.getBody();
 			JSONObject obj = json.getObject().getJSONObject("channel");
 			Unirest.shutdown();
@@ -50,9 +50,5 @@ public class SRConsumer {
 		} catch (UnirestException | IOException e) {
 			return null;
 		}
-	}
-
-	public static void main(String[] args) {
-		fetchStream(132);
 	}
 }
