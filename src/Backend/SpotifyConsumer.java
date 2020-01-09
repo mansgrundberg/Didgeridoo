@@ -5,6 +5,7 @@ import com.mashape.unirest.http.JsonNode;
 import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
 import com.mashape.unirest.http.options.Options;
+import com.mashape.unirest.request.GetRequest;
 
 import org.json.JSONObject;
 
@@ -45,11 +46,27 @@ public class SpotifyConsumer {
 			JsonNode json = response.getBody();
 			JSONObject obj = json.getObject();
 			Unirest.shutdown();
-			System.out.println(response.getBody());
 			return embedLink + obj.getJSONObject("tracks").getJSONArray("items").getJSONObject(0).getString("id");
 		} catch (Exception e) {
 			System.out.println(e + " Spotify");
 			return "";
 		}
+	}
+	
+	// Returnerar HTML för User Authourization
+	public static String getUserAccess() {
+		try {
+		Options.refresh();
+		HttpResponse<String> response = Unirest.get("https://accounts.spotify.com/authorize?client_id=5fe01282e44241328a84e7c5cc169165&response_type=code&redirect_uri=https%3A%2F%2Fexample.com%2Fcallback&scope=user-read-private%20user-read-email&state=34fFs29kd09")
+				.asString();
+		return response.getBody().toString();
+		} catch (Exception e) {
+			System.out.println(e);
+			return null;
+		}
+	}
+	
+	public static void main(String[] args) {
+		System.out.println(getUserAccess());
 	}
 }
