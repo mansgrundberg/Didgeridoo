@@ -90,12 +90,8 @@ body{
 	flex-wrap: wrap;
 	justify-content: center;
 	align-items: center;
+	padding: 10px;
 }
-
-.sr-iframe{
-	margin: -254px 0 -158px 0;
-}
-
 
 .spotify-players{
 	display: flex;
@@ -104,28 +100,14 @@ body{
 	justify-content: center;
 	align-items: center;
 	background-color: #191414;
+	padding: 15px;
 }
 
-.spotify-iframe{
-	height: 380px;
-	max-width: 300px;
-	padding: 20px;
-	border: 0;
-}
 .spotify-prev-iframe{
 	height: 380px;
 	max-width: 300px;
 	padding: 20px;
 	border: 0;
-}
-.spotify-next-iframe{
-	height: 380px;
-	max-width: 300px;
-	padding: 20px;
-	border: 0;
-}
-.spotify-iframe:focus{
-	outline: 0;
 }
 
 .spotify-present-iframe{
@@ -134,13 +116,39 @@ body{
 	border: 0;
 }
 
+.spotify-next-iframe{
+	height: 380px;
+	max-width: 300px;
+	padding: 20px;
+	border: 0;
+}
+
+.spotify-prev-iframe:focus{
+	outline: 0;
+}
+
+.spotify-present-iframe:focus{
+	outline: 0;
+}
+
+.spotify-next-iframe:focus{
+	outline: 0;
+}
+
 .youtube-players{
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
 	justify-content: center;
 	align-items: center;
-	padding: 30px;
+	padding: 15px;
+}
+
+.youtube-prev-iframe{
+	height: 240px;
+	max-width: 426px;
+	border: 0;
+	padding: 20px;
 }
 
 .youtube-present-iframe{
@@ -148,11 +156,23 @@ body{
 	max-width: 426px;
 	border: 0;
 }
-.youtube-iframe{
+
+.youtube-next-iframe{
 	height: 240px;
 	max-width: 426px;
 	border: 0;
 	padding: 20px;
+}
+
+.youtube-prev-iframe:focus{
+	outline: 0;
+}
+.youtube-present-iframe:focus{
+	outline: 0;
+}
+
+.youtube-next-iframe:focus{
+	outline: 0;
 }
 
 .animation{
