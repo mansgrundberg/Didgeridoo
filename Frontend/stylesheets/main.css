@@ -1,262 +1,257 @@
-	html{
-		overflow-y: scroll;
-		overflow-x: hidden;
-	}
+html{
+	overflow-y: scroll;
+	overflow-x: hidden;
+}
 
-	body{
-		background-color: #ff009a;
-	}
-	
-		.header{
-			display: flex;
-			background-color: #9619F2;
-			flex-direction: column;
-			flex-wrap: wrap;
-			justify-content: center;
-			align-items: center;
-			padding: 0px;
-		}
+body{
+	background-color: #282828;
+}
 
-		.radio-img{
-			width: 600px;
-			padding: 20px;
-			min-width: 300px;
-		}
+.header{
+	display: flex;
+	background-color: #7289DA;
+	flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	padding: 0px;
+}
 
-		.button-banner {
-			display: flex;
-			flex-direction: row;
-			flex-wrap: wrap;
-			justify-content: center;
-			align-items: center;
-			background-color: #FFAA00;
-			padding: 0px;
-		}
+.radio-img{
+	width: 600px;
+	padding: 20px;
+	min-width: 300px;
+}
 
-		.radio-channel-button{
-			display: flex;
-			flex-direction: row;
-			flex-wrap: wrap;
-			justify-content: center;
-			align-items: center;
-					
-			margin: 20px 10px;
-			padding: 5px 30px;
-	 		font-size: 26px;
-	 		font-weight: normal;
-			cursor: pointer;
-			text-align: center;
-			text-decoration: none;
-			outline: none;
-			color: #fff;
-			background-color: #069ca6;
-			border: none;
-			border-radius: 6px;
-			box-shadow: 0 6px #037279;
-			font-family: 'Raleway', sans-serif;
-		}
+.button-banner {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	background-color: #2C2F33;
+	padding: 0px;
+
+}
+
+.radio-channel-button{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+			
+	margin: 20px 10px;
+	padding: 5px 30px;
+	font-size: 26px;
+	font-weight: normal;
+	cursor: pointer;
+	text-align: center;
+	text-decoration: none;
+	outline: none;
+	color: #fff;
+
+	border: none;
+	border-radius: 6px;
+
+	font-family: 'Raleway', sans-serif;
+}
+#radio-button-1 {
+	background-color: #31a1bd;
+	box-shadow: 0 6px #24788d;
+}
+#radio-button-2 {
+	background-color: #ff5a00;
+	box-shadow: 0 6px #ac3d01;
+}
+#radio-button-3 {
+	background-color: #19a972;
+	box-shadow: 0 6px #0f6343;
+}
+#radio-button-4 {
+	background-color: #c31eaa;
+	box-shadow: 0 6px #811471;
+}
+
+.radio-channel-button:hover {
+	transform: translateY(-4px);
+	transition: 0.3s;
+}
+
+.radio-channel-button:active {
+	background-color: #00aab5;
+	box-shadow: 0 3px #04868e;
+	transform: translateY(6px);
+}
+
+.sr-player{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	padding: 10px;
+}
+
+.spotify-players{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	background-color: #191414;
+	padding: 15px;
+}
+
+.spotify-prev-iframe{
+	height: 380px;
+	max-width: 300px;
+	padding: 20px;
+	border: 0;
+}
+
+.spotify-present-iframe{
+	height: 380px;
+	max-width: 300px;
+	border: 0;
+}
+
+.spotify-next-iframe{
+	height: 380px;
+	max-width: 300px;
+	padding: 20px;
+	border: 0;
+}
+
+.spotify-prev-iframe:focus{
+	outline: 0;
+}
+
+.spotify-present-iframe:focus{
+	outline: 0;
+}
+
+.spotify-next-iframe:focus{
+	outline: 0;
+}
+
+.youtube-players{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	padding: 15px;
+}
+
+.youtube-prev-iframe{
+	height: 240px;
+	max-width: 426px;
+	border: 0;
+	padding: 20px;
+}
+
+.youtube-present-iframe{
+	height: 240px;
+	max-width: 426px;
+	border: 0;
+}
+
+.youtube-next-iframe{
+	height: 240px;
+	max-width: 426px;
+	border: 0;
+	padding: 20px;
+}
+
+.youtube-prev-iframe:focus{
+	outline: 0;
+}
+.youtube-present-iframe:focus{
+	outline: 0;
+}
+
+.youtube-next-iframe:focus{
+	outline: 0;
+}
+
+.animation{
+	-webkit-animation-name: colors;
+	animation-name: colors;
+	animation-duration: 1s;
+	-webkit-animation-duration: 1s;
+	animation-iteration-count: infinite;
+	-webkit-animation-iteration-count: infinite;  
 		
-		.radio-channel-button:hover {
-			background-color: #00aab5;
-			box-shadow: 0 6px #04868e;
-		}
+}
 
-		.radio-channel-button:active {
-			background-color: #00aab5;
-		 	box-shadow: 0 3px #04868e;
-			transform: translateY(4px);
-		}
+@keyframes colors {
+	0%		{background-color: red;}
+	12.5%	{background-color: indigo;}
+	25.0%	{background-color: olive;}
+	37.5%	{background-color: aqua;}
+	50.0%	{background-color: pink;}
+	62.5%	{background-color: green;}
+	75.0%	{background-color: brown;}
+	87.5%	{background-color: yellow;}
+	100.0%	{background-color:purple;}
+}
 
-		.sr-player{
-			background-color: #FFFFFF;
-			border-radius: 32px;
-			display: flex;
-			flex-direction: row;
-			flex-wrap: wrap;
-			justify-content: center;
-			align-items: center;
-			overflow: hidden;
-			margin-left: 50%;
-			margin-top: 4%;
-			height: 54px;
-			width: 300px;
-			outline: 0;
-			transform: translate(-50%, -50%);
-		}
+@-webkit-keyframes colors {
+	0%		{background-color: red;}
+	12.5%	{background-color: indigo;}
+	25.0%	{background-color: olive;}
+	37.5%	{background-color: aqua;}
+	50.0%	{background-color: pink;}
+	62.5%	{background-color: green;}
+	75.0%	{background-color: brown;}
+	87.5%	{background-color: yellow;}
+	100.0%	{background-color:purple;}
+}
 
-		.sr-iframe{
-			margin: -254px 0 -158px 0;
-		}
+.disco {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	padding: 0px;
+}
+.button {
+	display: inline-block;
+	padding: 1% 2%;
+	font-size: 2vw;
+	cursor: pointer;
+	text-align: center;
+	text-decoration: none;
+	outline: none;
+	color: #fff;
+	background-color: #069ca6;
+	border: none;
+	border-radius: 6px;
+	box-shadow: 0 7px #037279;
+}
 
+.button:hover {
+	background-color: #00aab5;
+	box-shadow: 0 7px #04868e;
+}
 
-		.spotify-players{
-			display: flex;
-			flex-direction: row;
-			flex-wrap: wrap;
-			justify-content: center;
-			align-items: center;
-		}
-
-		.spotify-iframe{
-			height: 380px;
-			max-width: 300px;
-			padding: 20px;
-			border: 0;
-		}
-		.spotify-iframe:focus{
-			outline: 0;
-		}
-
-		.spotify-present-iframe{
-			height: 380px;
-			max-width: 300px;
-			border: 0;
-		}
-
-		.youtube-players{
-			display: flex;
-			flex-direction: row;
-			flex-wrap: wrap;
-			justify-content: center;
-			align-items: center;
-			padding: 30px;
-		}
-
-		.youtube-present-iframe{
-			height: 240px;
-			max-width: 426px;
-			border: 0;
-		}
-		.youtube-iframe{
-			height: 240px;
-			max-width: 426px;
-			border: 0;
-			padding: 20px;
-		}
-
-		.animation{
-			-webkit-animation-name: colors;
-			animation-name: colors;
-			animation-duration: 1s;
-			-webkit-animation-duration: 1s;
-			animation-iteration-count: infinite;
-			-webkit-animation-iteration-count: infinite;  
-				
-		}
-
-		@keyframes colors {
-			0%		{background-color: red;}
-			12.5%	{background-color: indigo;}
-    		25.0%	{background-color: olive;}
-			37.5%	{background-color: aqua;}
-			50.0%	{background-color: pink;}
-			62.5%	{background-color: green;}
-			75.0%	{background-color: brown;}
-			87.5%	{background-color: yellow;}
-    		100.0%	{background-color:purple;}
-		}
-		
-		@-webkit-keyframes colors {
-			0%		{background-color: red;}
-			12.5%	{background-color: indigo;}
-    		25.0%	{background-color: olive;}
-			37.5%	{background-color: aqua;}
-			50.0%	{background-color: pink;}
-			62.5%	{background-color: green;}
-			75.0%	{background-color: brown;}
-			87.5%	{background-color: yellow;}
-    		100.0%	{background-color:purple;}
-		}
-
-		.disco {
-			display: flex;
-			flex-direction: column;
-			flex-wrap: wrap;
-			justify-content: center;
-			align-items: center;
-			padding: 0px;
-		}
-		.button {
-	 		display: inline-block;
-			padding: 1% 2%;
-	 		font-size: 2vw;
-			cursor: pointer;
-			text-align: center;
-			text-decoration: none;
-			outline: none;
-			color: #fff;
-			background-color: #069ca6;
-			border: none;
-			border-radius: 6px;
-			box-shadow: 0 7px #037279;
-		}
-
-		.button:hover {
-			background-color: #00aab5;
-			box-shadow: 0 7px #04868e;
-		}
-
-		.button:active {
-			background-color: #00aab5;
-		 	box-shadow: 0 3px #04868e;
-			transform: translateY(4px);
-		}
-
-		
-		.h3 {
-			display: flex;
-			flex-wrap: wrap;
-			max-width: 800px;
-			text-align: center;
-			color: #FFFFFF;
-		}
-	
-	}
+.button:active {
+	background-color: #00aab5;
+	box-shadow: 0 3px #04868e;
+	transform: translateY(4px);
+}
 
 
-	@media screen and (max-width: 1024px) {
+.h3 {
+	display: flex;
+	flex-wrap: wrap;
+	max-width: 800px;
+	text-align: center;
+	color: #FFFFFF;
+}
 
-		.sr-player{
-			background-color: #FFFFFF;
-			border-radius: 32px;
-			display: flex;
-			flex-direction: row;
-			flex-wrap: wrap;
-			justify-content: center;
-			align-items: center;
-			overflow: hidden;
-			margin-left: 50%;
-			margin-top: 6%;
-			height: 54px;
-			width: 300px;
-			outline: 0;
-			transform: translate(-50%, -50%);
-		}
+@media screen and (max-width: 1000px) {
 
-		
-	}
-
-	@media screen and (max-width: 767px) {
-
-		
-
-		.sr-player{
-			background-color: #FFFFFF;
-			border-radius: 32px;
-			display: flex;
-			flex-direction: row;
-			flex-wrap: wrap;
-			justify-content: center;
-			align-items: center;
-			overflow: hidden;
-			margin-left: 50%;
-			margin-top: 10%;
-			height: 54px;
-			width: 300px;
-			outline: 0;
-			transform: translate(-50%, -50%);
-		}
-	
-	}
-
-
+}
