@@ -5,7 +5,6 @@ import com.mashape.unirest.http.JsonNode;
 import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
 import com.mashape.unirest.http.options.Options;
-import com.mashape.unirest.request.GetRequest;
 
 import org.json.JSONObject;
 
@@ -14,6 +13,7 @@ public class SpotifyConsumer {
 	private static final String client_id = "fb435518dac2475388699e465c3ad740";
 	private static final String client_secret = "e4f91cb42afc40cbba822bd73b81801b";
 
+	// Trades id and password for an authorization token
 	private static String fetchToken(String client_id, String client_secret) {
 		try {
 			Options.refresh();
@@ -43,30 +43,14 @@ public class SpotifyConsumer {
 					.queryString("limit", 1)
 					.asJson();
 
+			System.out.println(response.getBody());
 			JsonNode json = response.getBody();
 			JSONObject obj = json.getObject();
 			Unirest.shutdown();
 			return embedLink + obj.getJSONObject("tracks").getJSONArray("items").getJSONObject(0).getString("id");
 		} catch (Exception e) {
 			System.out.println(e + " Spotify");
-			return "";
+			return "null";
 		}
-	}
-	
-	// Returnerar HTML för User Authourization
-	public static String getUserAccess() {
-		try {
-		Options.refresh();
-		HttpResponse<String> response = Unirest.get("https://accounts.spotify.com/authorize?client_id=5fe01282e44241328a84e7c5cc169165&response_type=code&redirect_uri=https%3A%2F%2Fexample.com%2Fcallback&scope=user-read-private%20user-read-email&state=34fFs29kd09")
-				.asString();
-		return response.getBody().toString();
-		} catch (Exception e) {
-			System.out.println(e);
-			return null;
-		}
-	}
-	
-	public static void main(String[] args) {
-		System.out.println(getUserAccess());
 	}
 }

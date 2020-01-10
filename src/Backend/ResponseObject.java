@@ -22,16 +22,6 @@ public class ResponseObject {
 		return this.song;
 	}
 	
-	// För testning. Kan huttas senare.
-	public void setPreviousSong(Song previousSong) {
-		this.previoussong = previousSong;
-	}
-	
-	// För testning. Kan huttas senare.
-	public void setNextSong(Song nextSong) {
-		this.nextsong = nextSong;
-	}
-	
 	public void setChannel(Channel channel) {
 		this.channel = channel;
 	}

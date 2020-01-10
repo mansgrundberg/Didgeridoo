@@ -18,8 +18,10 @@ public class YoutubeConsumer {
 			Options.refresh();
 			HttpResponse<JsonNode> response = Unirest.get("https://www.googleapis.com/youtube/v3/search?")
 					.header("Accept", "application/json").queryString("part", "snippet").queryString("maxResults", 1)
-					.queryString("q", track + artist).queryString("type", "video").queryString("key", key)
+					.queryString("q", track + " " + artist).queryString("type", "video").queryString("key", key)
 					.queryString("order", "viewCount").asJson();
+			
+			System.out.println(response.getBody());
 
 			JsonNode json = response.getBody();
 			JSONObject obj = json.getObject();
@@ -28,7 +30,7 @@ public class YoutubeConsumer {
 			return embedLink + items.getJSONObject(0).getJSONObject("id").getString("videoId");
 		} catch (Exception e) {
 			System.out.println(e + " Youtube");
-			return "";
+			return "null";
 		}
 	}
 }
