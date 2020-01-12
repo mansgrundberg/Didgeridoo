@@ -4,6 +4,10 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.TimeZone;
 
+/*
+ * Represents a song.
+ */
+
 public class Song {
 	private String title;
 	private String artist;
@@ -46,6 +50,9 @@ public class Song {
 		return this.starttimeutc;
 	}
 	
+	/*
+	 * Konverterar datum från millisekunder till dd-MM-yy HH:mm:ss
+	 */
 	public void convertDates() {
 		Calendar calendar = Calendar.getInstance();
 		SimpleDateFormat format = new SimpleDateFormat("dd-MM-yy HH:mm:ss");

@@ -1,10 +1,12 @@
 package Backend;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashMap;
-import java.util.List;
-import java.util.stream.Collectors;
+
+/*
+ * This class connects channel IDs with their corresponding channel names. 
+ * Makes it possible to call the API GET-methods with channel names instead of the SR channel-ids.
+ */
 
 public class IDList {
 	private HashMap<String, Integer> map;
@@ -32,9 +34,6 @@ public class IDList {
 	}
 	
 	public ArrayList<Integer> getAll() {
-		System.out.println("Returnerar lista");
-		System.out.println(map.size());
 		return new ArrayList<Integer>(map.values());
 	}
-
 }

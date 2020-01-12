@@ -1,5 +1,9 @@
 package Backend;
 
+/*
+ * The API response object. 
+ */
+
 public class ResponseObject {
 	private Channel channel;
 	private Song previoussong;

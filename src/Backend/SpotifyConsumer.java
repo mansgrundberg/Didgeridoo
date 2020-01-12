@@ -8,6 +8,10 @@ import com.mashape.unirest.http.options.Options;
 
 import org.json.JSONObject;
 
+/*
+ * This class handles all the consumption of the Spotify Web API.
+ */
+
 public class SpotifyConsumer {
 	private static final String embedLink = "https://open.spotify.com/embed/track/";
 	private static final String client_id = "fb435518dac2475388699e465c3ad740";
@@ -31,7 +35,9 @@ public class SpotifyConsumer {
 		}
 	}
 
-	// Fixa till söksträngen den e katastrof. Returnerar länk till player som går att bädda in i html 
+	/*
+	 * Fetches the search result for the given track and artist, returns an link to an embedabble spotify player
+	 */
 	public static String fetchResult(String track, String artist) {
 		try {
 			Options.refresh();
@@ -42,8 +48,7 @@ public class SpotifyConsumer {
 					.queryString("type", "track")
 					.queryString("limit", 1)
 					.asJson();
-
-			System.out.println(response.getBody());
+			
 			JsonNode json = response.getBody();
 			JSONObject obj = json.getObject();
 			Unirest.shutdown();

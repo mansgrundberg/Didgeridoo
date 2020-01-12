@@ -11,15 +11,12 @@ import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
 import com.mashape.unirest.http.options.Options;
 
+/*
+ * Handles all consumption of the SR API.
+ */
+
 public class SRConsumer {
 
-	/*
-	 * CHANNEL IDS: P1: 132 P2: 163 P3: 164 P4 Blekinge: 213 P4 Dalarna: 223 P4
-	 * Gotland: 205 P4 Gävleborg: 210 P4 Göteborg: 212 P4 Halland: 220 P4 Jämtland:
-	 * 200
-	 */
-	
-	
 	/*
 	 * Method which fetches the chosen channels name, logo and an URL to the live stream. 
 	 * Creates a Channel object with this information and returns it.
@@ -52,7 +49,7 @@ public class SRConsumer {
 					.queryString("channelid", channelID)
 					.queryString("format", "json")
 					.asJson();
-
+			
 			JsonNode json = response.getBody();
 			Unirest.shutdown();
 			return new Gson().fromJson(json.getObject().getJSONObject("playlist").toString(), ResponseObject.class);

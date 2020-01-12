@@ -10,29 +10,29 @@ public class APIRunner {
 	public static void main(String[] args) throws Exception {
 		port(5000);
 
-		// test test test
 		IDList idList = new IDList();
 		Controller controller = new Controller(idList);
 
-		// Returnera array med resultat för alla kanaler
+		/*
+		 * Returns the result for every available channel as an array of ResponseObjects.
+		 */
 		get("/v1/", (req, res) -> {
 			res.type("application/json");
 			res.status(200);
 			return new Gson().toJson(controller.fetchAll());
 		});
 
-		// Returnerar resultat för givet id
-		get("/v1/:id", (req, res) -> {
+		/*
+		 * Returns a ReponseObject for the given id or channel name
+		 */
+		get("/v1/:channel", (req, res) -> {
 			res.type("application/json");
 			res.status(200);
-			return new Gson().toJson(controller.fetchResult(Integer.parseInt(req.params(":id"))));
-		});
-
-		// TODO: Returnerar channel id för given radiokanal
-		get("/v1/search/:searchString", (req, res) -> {
-			res.type("application/json");
-			res.status(200);
-			return new Gson().toJson(controller.fetchResult((idList.getID(req.params(":searchString")))));
+			if (req.params(":channel").matches("[0-9]+")) {
+				return new Gson().toJson(controller.fetchResult(Integer.parseInt(req.params(":channel"))));
+			} else {
+				return new Gson().toJson(controller.fetchResult((idList.getID(req.params(":channel")))));
+			}
 		});
 	}
 }

@@ -8,11 +8,15 @@ import com.mashape.unirest.http.JsonNode;
 import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.options.Options;
 
+/*
+ * Handles all the consumption of the Youtube API.
+ */
+
 public class YoutubeConsumer {
-	private static final String key = "AIzaSyA-suXDusGt8FrwpFXpackliwj2fK0wjJ4";
+	private static final String key = "AIzaSyCOHy5891gKLEv-KnOzC15k-z0tt6vZbWQ";
 	private static final String embedLink = "https://www.youtube.com/embed/";
 
-	// Returnerar en inbäddningsbar youtubespelare för den mest populära videon givet sökning. Bäddas in med <iframe></iframe>
+	// Fetches the search result for the given track title and artist. Returns a link to an embedabble youtube player for the given video.
 	public static String searchVideo(String track, String artist) {
 		try {
 			Options.refresh();
@@ -20,8 +24,6 @@ public class YoutubeConsumer {
 					.header("Accept", "application/json").queryString("part", "snippet").queryString("maxResults", 1)
 					.queryString("q", track + " " + artist).queryString("type", "video").queryString("key", key)
 					.queryString("order", "viewCount").asJson();
-			
-			System.out.println(response.getBody());
 
 			JsonNode json = response.getBody();
 			JSONObject obj = json.getObject();
