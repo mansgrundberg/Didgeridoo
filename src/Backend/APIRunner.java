@@ -16,7 +16,7 @@ public class APIRunner {
 		/*
 		 * Returns the result for every available channel as an array of ResponseObjects.
 		 */
-		get("/v1/", (req, res) -> {
+		get("/v1/channels", (req, res) -> {
 			res.type("application/json");
 			res.status(200);
 			return new Gson().toJson(controller.fetchAll());
@@ -25,7 +25,7 @@ public class APIRunner {
 		/*
 		 * Returns a ReponseObject for the given id or channel name
 		 */
-		get("/v1/:channel", (req, res) -> {
+		get("/v1/channels/:channel", (req, res) -> {
 			res.type("application/json");
 			res.status(200);
 			if (req.params(":channel").matches("[0-9]+")) {

@@ -30,7 +30,7 @@ function youtubeNotFound(element){
 function changeChannel(id){
     
     $.ajax({
-        url: 'http://localhost:5000/v1/'+id,
+        url: 'http://localhost:5000/v1/channels/'+id,
         type: "GET",
         dataType: "json",
         success: function (data) {
