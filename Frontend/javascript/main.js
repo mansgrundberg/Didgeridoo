@@ -17,6 +17,21 @@ $(document).ready(function() {
             start = true;
         }
     });
+    $("#aboutbutton").on("click", function() {
+        $("body").prepend("<div id='backgroundModal' style='top: 0; bottom: 0; left: 0; right: 0; position: fixed; background-color: rgba(0,0,0,0.5); display:none; z-index: 5;'></div>");
+        // Visar bakgrunden och aboutsidan
+        $("#backgroundModal").fadeIn(500);
+        $('#aboutpage').css({
+            'display': 'block',
+        });
+        // Tar bort aboutsidan och bakgrundsskuggan
+        $("#backgroundModal").on("click", function() {
+            $("#backgroundModal").fadeOut(500);
+            $('#aboutpage').css({
+                'display': 'none',
+            });
+        })
+    });
 });    
 
 function spotifyNotFound(element){

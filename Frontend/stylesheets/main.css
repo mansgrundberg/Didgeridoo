@@ -17,10 +17,8 @@ body{
 	padding: 0px;
 }
 
-.radio-img{
-	width: 600px;
-	padding: 20px;
-	min-width: 300px;
+.logo{
+	width: 25%;
 }
 
 .button-banner {
@@ -31,9 +29,41 @@ body{
 	align-items: center;
 	background-color: #2C2F33;
 	padding: 0px;
+	border-style: solid;
+	border-left: 0px;
+	border-right: 0px;
 
 }
 
+#aboutbutton{
+	position: absolute;
+	color: white;
+	margin-left: 45%;
+	cursor: pointer;
+	border-style: solid;
+	border-top: 0px;
+	border-bottom: 0px;
+	padding-left: 10px;
+	padding-right: 10px;
+	border-color: #191414;
+}
+
+#aboutpage{
+	position: fixed;
+	width: 50%;
+	margin-left: 25%;
+	margin-right: 25%;
+	margin-top: 150px;
+	height: 50%;
+	z-index: 6;
+	display: none;
+	background-color: #413e3e;
+	border-radius: 20px;
+	padding: 50px;
+}
+#aboutpage > h4 {
+	color: white;
+}
 .radio-channel-button{
 	display: flex;
 	flex-direction: row;
