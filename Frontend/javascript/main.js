@@ -4,8 +4,8 @@ var start = true;
 
 $(document).ready(function() {
 
-    changeChannel('164'); 
-   
+    changeChannel('164');
+    
     $('.button').click(function(){
         if(start){
             $('body').addClass('animation');
@@ -28,14 +28,31 @@ function youtubeNotFound(element){
 }
 
 function changeChannel(id){
+    
     $.ajax({
-        url: 'http://localhost:5000/'+id,
-        timeout: 8000,
+        url: 'http://localhost:5000/v1/'+id,
         type: "GET",
         dataType: "json",
         success: function (data) {
             var audio =  $('audio');
             $(audio).attr('src', data['channel']['liveaudio']);
+
+            var channelName = $('#radioName');
+            var titleAndArtist = $('#songTitleArtist');
+
+            try{
+                $(channelName).html(data['channel']['name']);
+                $(titleAndArtist).html(data['song']['title']+' - '+data['song']['artist']);
+                if(channelName == ''){
+                    $(channelName).html('Radiotystnad. Läskigt..');
+                }
+                if(titleAndArtist == ''){
+                    $(titleAndArtist).html('Bara en massa snack?');
+                }
+            }catch(err){
+                console.log(err.message);
+                $(titleAndArtist).html('Bara en massa snack?');
+            }
             
             var spotifyPrev = $('.spotify-prev-iframe');
             var spotifyPresent = $('.spotify-present-iframe');
@@ -105,7 +122,8 @@ function changeChannel(id){
             }catch(err){
                 console.log(err.message);
                 youtubeNotFound(youtubeNext);
-            }       
+            }                
+
         }
     });
 }
