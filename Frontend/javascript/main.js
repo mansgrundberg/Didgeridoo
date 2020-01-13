@@ -8,7 +8,7 @@
 
 $(document).ready(function() {
     window.start = true;
-    changeChannel('164');
+    changeChannel('p3');
        
 });    
 
@@ -85,10 +85,10 @@ function changeChannel(id){
             try{
                 $(channelName).html(data['channel']['name']);
                 $(titleAndArtist).html(data['song']['title']+' - '+data['song']['artist']);
-                if(channelName == null || channelName == ''){
+                if(channelName == null || channelName == '' || channelName == undefined){
                     $(channelName).html('Radiotystnad. Läskigt..');
                 }
-                if(titleAndArtist == null || titleAndArtist == ''){
+                if(titleAndArtist == null || titleAndArtist == '' || titleAndArtist == undefined){
                     $(titleAndArtist).html('Bara en massa snack?');
                 }
             }catch(err){
@@ -103,7 +103,7 @@ function changeChannel(id){
             try{
                 var previousSongSpotifyLink = data['previoussong']['spotifyLink'];
                 $(spotifyPrev).attr('src', previousSongSpotifyLink);
-                if(previousSongSpotifyLink == null || previousSongSpotifyLink == ''){
+                if(previousSongSpotifyLink == null || previousSongSpotifyLink == '' || previousSongSpotifyLink == undefined){
                     spotifyNotFound(spotifyPrev);
                 }
             }catch(err){
@@ -113,7 +113,7 @@ function changeChannel(id){
               try{
                 var songSpotifyLink = data['song']['spotifyLink'];
                 $(spotifyPresent).attr('src', songSpotifyLink);
-                if(songSpotifyLink == null || songSpotifyLink == ''){
+                if(songSpotifyLink == null || songSpotifyLink == '' || songSpotifyLink == undefined){
                     spotifyNotFound(spotifyPresent);
                 }
             }catch(err){
@@ -123,7 +123,7 @@ function changeChannel(id){
               try{
                 var nextSongSpotifyLink = data['nextsong']['spotifyLink'];
                 $(spotifyNext).attr('src', nextSongSpotifyLink);
-                if(nextSongSpotifyLink == null || nextSongSpotifyLink == ''){
+                if(nextSongSpotifyLink == null || nextSongSpotifyLink == '' || nextSongSpotifyLink == undefined){
                     spotifyNotFound(spotifyNext);
                 }
             }catch(err){
@@ -138,7 +138,7 @@ function changeChannel(id){
             try{
                 var previousSongYoutubeLink = data['previoussong']['youtubeLink'];
                 $(youtubePrev).attr('src', previousSongYoutubeLink);
-                if(previousSongYoutubeLink == null || previousSongYoutubeLink == ''){
+                if(previousSongYoutubeLink == null || previousSongYoutubeLink == '' || previousSongYoutubeLink == undefined){
                     youtubeNotFound(youtubePrev);
                 }
             }catch(err){
@@ -148,7 +148,7 @@ function changeChannel(id){
              try{
                 var songYoutubeLink = data['song']['youtubeLink'];
                 $(youtubePresent).attr('src', songYoutubeLink);
-                if(songYoutubeLink == null || songYoutubeLink == ''){
+                if(songYoutubeLink == null || songYoutubeLink == '' || songYoutubeLink == undefined){
                     youtubeNotFound(youtubePresent);
                 }
             }catch(err){
@@ -158,7 +158,7 @@ function changeChannel(id){
              try{
                 var nextSongYoutubeLink = data['nextsong']['youtubeLink'];
                 $(youtubeNext).attr('src', nextSongYoutubeLink);
-                if(nextSongYoutubeLink == null || nextSongYoutubeLink == ''){
+                if(nextSongYoutubeLink == null || nextSongYoutubeLink == '' || nextSongYoutubeLink == undefined){
                     youtubeNotFound(youtubeNext);
                 }
             }catch(err){
