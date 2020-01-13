@@ -42,8 +42,24 @@ function disco(){
             $('.button').html("DISCO TIME")
             start = true;
         }
-}
 
+}
+function about(){
+    $("body").prepend("<div id='backgroundModal' style='top: 0; bottom: 0; left: 0; right: 0; position: fixed; background-color: rgba(0,0,0,0.5); display:none; z-index: 5;'></div>");
+        // Visar bakgrunden och aboutsidan
+        $("#backgroundModal").fadeIn(500);
+        $('#aboutpage').css({
+            'display': 'block',
+        });
+        // Tar bort aboutsidan och bakgrundsskuggan
+        $("#backgroundModal").on("click", function() {
+            $("#backgroundModal").fadeOut(500);
+            $('#aboutpage').css({
+                'display': 'none',
+            });
+        });
+}
+    
 /*
 * Function which makes ajax-requests to the REST-APIs GET endpoint for the different radio channels. 
 * The function is called on load of webbpage once and then when users clicks on specified channel buttons. 
