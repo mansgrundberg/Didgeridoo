@@ -17,11 +17,9 @@ body{
 	padding: 0px;
 }
 
-
 .logo{
 	width: 40%;
 }
-
 
 .button-banner {
 	display: flex;
@@ -166,6 +164,14 @@ p {
 	padding: 15px;
 }
 
+.spotify-prev{
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+}
+
 .spotify-prev-iframe{
 	height: 380px;
 	max-width: 300px;
@@ -173,10 +179,26 @@ p {
 	border: 0;
 }
 
+.spotify-present{
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+}
+
 .spotify-present-iframe{
 	height: 380px;
 	max-width: 300px;
 	border: 0;
+}
+
+.spotify-next{
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
 }
 
 .spotify-next-iframe{
@@ -282,6 +304,7 @@ p {
 }
 .button {
 	display: inline-block;
+	margin: 20px;
 	padding: 1% 2%;
 	font-size: 2vw;
 	cursor: pointer;
@@ -305,8 +328,6 @@ p {
 	box-shadow: 0 3px #04868e;
 	transform: translateY(4px);
 }
-
-
 
 
 @media screen and (max-width: 1000px) {

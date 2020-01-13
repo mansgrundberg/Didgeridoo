@@ -89,11 +89,11 @@ function changeChannel(id){
                     $(channelName).html('Radiotystnad. Läskigt..');
                 }
                 if(titleAndArtist == null || titleAndArtist == '' || titleAndArtist == undefined){
-                    $(titleAndArtist).html('Bara en massa snack?');
+                    $(titleAndArtist).html('Okänd eller bara en massa snack?');
                 }
             }catch(err){
                 console.log(err.message);
-                $(titleAndArtist).html('Bara en massa snack?');
+                $(titleAndArtist).html('Okänd eller bara en massa snack?');
             }
             
             var spotifyPrev = $('.spotify-prev-iframe');
@@ -165,7 +165,6 @@ function changeChannel(id){
                 console.log(err.message);
                 youtubeNotFound(youtubeNext);
             }                
-
         }
     });
 }
