@@ -27,7 +27,13 @@ public class APIRunner {
 		 */
 		get("/v1/channels/:channel", (req, res) -> {
 			res.type("application/json");
-			res.status(200);
+			
+			if (!idList.checkId(req.params(":channel"))) {
+				res.status(400);
+			} else {
+				res.status(200);
+			}
+			
 			if (req.params(":channel").matches("[0-9]+")) {
 				return new Gson().toJson(controller.fetchResult(Integer.parseInt(req.params(":channel"))));
 			} else {

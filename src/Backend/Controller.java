@@ -25,8 +25,13 @@ public class Controller {
 	 * Fetches links for all Songs present in the given ResponseObject.
 	 */
 	private void getLinks(ResponseObject res) {
+		if (res.getPreviousSong() != null) {
 		getLink(res.getPreviousSong());
+		}
+		
+		if (res.getNextSong() != null) {
 		getLink(res.getNextSong());
+		}
 
 		if (res.getSong() != null) {
 			getLink(res.getSong());
@@ -43,8 +48,13 @@ public class Controller {
 	}
 
 	private void convertDates(ResponseObject res) {
+		if (res.getPreviousSong() != null) {
 		res.getPreviousSong().convertDates();
+		}
+		
+		if (res.getNextSong() != null) {
 		res.getNextSong().convertDates();
+		}
 
 		if (res.getSong() != null) {
 			res.getSong().convertDates();

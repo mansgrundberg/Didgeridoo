@@ -27,6 +27,7 @@ public class IDList {
 		map.put("p4jämtland", 200);
 		map.put("p4gävleborg", 210);
 		map.put("p4blekinge", 213);
+		map.put("p4", 212);
 	}
 	
 	public int getID(String searchString) {
@@ -35,5 +36,17 @@ public class IDList {
 	
 	public ArrayList<Integer> getAll() {
 		return new ArrayList<Integer>(map.values());
+	}
+	
+	/*
+	 * Check if channel name or ID is present
+	 */
+	public boolean checkId(String channel) {
+		if (map.containsKey(channel.toLowerCase().replaceAll("\\s", ""))) {
+			return true;
+		} else if (map.values().contains(Integer.parseInt(channel))) {
+			return true;
+		}
+		return false;
 	}
 }
