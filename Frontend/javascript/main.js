@@ -85,17 +85,39 @@ function changeChannel(id){
 
             try{
                 $(channelName).html(data['channel']['name']);
-                $(titleAndArtist).html(data['song']['title']+' - '+data['song']['artist']);
-                $(prevTitleAndArtist).html('Previous song <br>'+data['previoussong']['title']+ ' - '+data['previoussong']['artist']);
-                $(nextTitleAndArtist).html('Next song <br>'+data['nextsong']['title']+ ' - '+data['nextsong']['artist']);
                 if(channelName == null || channelName == '' || channelName == undefined){
                     $(channelName).html('Radiotystnad. Läskigt..');
                 }
+            }catch(err){
+                console.log(err.message);
+                $(channelName).html('Radiotystnad. Läskigt..');
+            }
+            try{
+                $(titleAndArtist).html(data['song']['title']+' - '+data['song']['artist']);
                 if(titleAndArtist == null || titleAndArtist == '' || titleAndArtist == undefined){
                     $(titleAndArtist).html('Okänd eller bara en massa snack?');
                 }
             }catch(err){
                 console.log(err.message);
+                $(titleAndArtist).html('Okänd eller bara en massa snack?');
+            }
+            try{
+                $(prevTitleAndArtist).html('Previous song <br>'+data['previoussong']['title']+ ' - '+data['previoussong']['artist']);
+                if(prevTitleAndArtist == null || prevTitleAndArtist == '' || prevTitleAndArtist == undefined){
+                    $(prevTitleAndArtist).html('Previous song <br>Okänd eller bara en massa snack?');
+                }
+            }catch(err){
+                console.log(err.message);
+                $(prevTitleAndArtist).html('Previous song <br>Okänd eller bara en massa snack?');
+            }
+            try{
+                $(nextTitleAndArtist).html('Next song <br>'+data['nextsong']['title']+ ' - '+data['nextsong']['artist']);
+                if(nextTitleAndArtist == null || nextTitleAndArtist == '' || nextTitleAndArtist == undefined){
+                    $(nextTitleAndArtist).html('Next song <br>Okänd eller bara en massa snack?');
+                }
+            }catch(err){
+                console.log(err.message);
+                $(nextTitleAndArtist).html('Previous song <br>Okänd eller bara en massa snack?');
             }
             
             var spotifyPrev = $('.spotify-prev-iframe');
@@ -186,14 +208,44 @@ function refresh(id){
 
             var channelName = $('#radioName');
             var titleAndArtist = $('#songTitleArtist');
+            var prevTitleAndArtist = $('#prevTitleArtist');
+            var nextTitleAndArtist = $('#nextTitleArtist');
 
             try{
                 $(channelName).html(data['channel']['name']);
-                $(titleAndArtist).html(data['song']['title']+' - '+data['song']['artist']);
-                $('#prevTitleArtist').html('Previous song <br>'+data['previoussong']['title']+ ' - '+data['previoussong']['artist']);
-                $('#nextTitleArtist').html('Next song <br>'+data['nextsong']['title']+ ' - '+data['nextsong']['artist']);
+                if(channelName == null || channelName == '' || channelName == undefined){
+                    $(channelName).html('Radiotystnad. Läskigt..');
+                }
             }catch(err){
                 console.log(err.message);
+                $(channelName).html('Radiotystnad. Läskigt..');
+            }
+            try{
+                $(titleAndArtist).html(data['song']['title']+' - '+data['song']['artist']);
+                if(titleAndArtist == null || titleAndArtist == '' || titleAndArtist == undefined){
+                    $(titleAndArtist).html('Okänd eller bara en massa snack?');
+                }
+            }catch(err){
+                console.log(err.message);
+                $(titleAndArtist).html('Okänd eller bara en massa snack?');
+            }
+            try{
+                $(prevTitleAndArtist).html('Previous song <br>'+data['previoussong']['title']+ ' - '+data['previoussong']['artist']);
+                if(prevTitleAndArtist == null || prevTitleAndArtist == '' || prevTitleAndArtist == undefined){
+                    $(prevTitleAndArtist).html('Previous song <br>Okänd eller bara en massa snack?');
+                }
+            }catch(err){
+                console.log(err.message);
+                $(prevTitleAndArtist).html('Previous song <br>Okänd eller bara en massa snack?');
+            }
+            try{
+                $(nextTitleAndArtist).html('Next song <br>'+data['nextsong']['title']+ ' - '+data['nextsong']['artist']);
+                if(nextTitleAndArtist == null || nextTitleAndArtist == '' || nextTitleAndArtist == undefined){
+                    $(nextTitleAndArtist).html('Next song <br>Okänd eller bara en massa snack?');
+                }
+            }catch(err){
+                console.log(err.message);
+                $(nextTitleAndArtist).html('Previous song <br>Okänd eller bara en massa snack?');
             }
             
             var spotifyPrev = $('.spotify-prev-iframe');
