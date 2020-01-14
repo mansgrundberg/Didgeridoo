@@ -154,6 +154,18 @@ p {
 	padding: 10px;
 }
 
+#prevTitleArtist {
+	max-width: 260px;
+	font-size: 12px;
+	text-align: center;
+}
+
+#nextTitleArtist {
+	max-width: 260px;
+	font-size: 12px;
+	text-align: center;
+}
+
 .spotify-players{
 	display: flex;
 	flex-direction: row;

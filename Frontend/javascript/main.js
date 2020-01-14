@@ -1,5 +1,4 @@
 
-
 /*
 * jQuery-method which runs the code within it once the page DOM is ready to execute JavaScript. 
 * The ready-function sets a global variable, start, which holds a boolean value for the disco function.
@@ -71,7 +70,7 @@ function about(){
 */
 
 function changeChannel(id){
-    
+    myStopFunction();
     $.ajax({
         url: 'http://localhost:5000/v1/channels/'+id,
         type: "GET",
@@ -81,10 +80,14 @@ function changeChannel(id){
 
             var channelName = $('#radioName');
             var titleAndArtist = $('#songTitleArtist');
+            var prevTitleAndArtist = $('#prevTitleArtist');
+            var nextTitleAndArtist = $('#nextTitleArtist');
 
             try{
                 $(channelName).html(data['channel']['name']);
                 $(titleAndArtist).html(data['song']['title']+' - '+data['song']['artist']);
+                $(prevTitleAndArtist).html('Previous song <br>'+data['previoussong']['title']+ ' - '+data['previoussong']['artist']);
+                $(nextTitleAndArtist).html('Next song <br>'+data['nextsong']['title']+ ' - '+data['nextsong']['artist']);
                 if(channelName == null || channelName == '' || channelName == undefined){
                     $(channelName).html('Radiotystnad. Läskigt..');
                 }
@@ -93,7 +96,6 @@ function changeChannel(id){
                 }
             }catch(err){
                 console.log(err.message);
-                $(titleAndArtist).html('Okänd eller bara en massa snack?');
             }
             
             var spotifyPrev = $('.spotify-prev-iframe');
@@ -167,4 +169,103 @@ function changeChannel(id){
             }                
         }
     });
+window.interval = setInterval(() => {
+    refresh(id)}, 60000);
+}
+
+function myStopFunction() {
+  clearInterval(window.interval);
+}
+
+function refresh(id){
+     $.ajax({
+        url: 'http://localhost:5000/v1/channels/'+id,
+        type: "GET",
+        dataType: "json",
+        success: function (data) {
+
+            var channelName = $('#radioName');
+            var titleAndArtist = $('#songTitleArtist');
+
+            try{
+                $(channelName).html(data['channel']['name']);
+                $(titleAndArtist).html(data['song']['title']+' - '+data['song']['artist']);
+                $('#prevTitleArtist').html('Previous song <br>'+data['previoussong']['title']+ ' - '+data['previoussong']['artist']);
+                $('#nextTitleArtist').html('Next song <br>'+data['nextsong']['title']+ ' - '+data['nextsong']['artist']);
+            }catch(err){
+                console.log(err.message);
+            }
+            
+            var spotifyPrev = $('.spotify-prev-iframe');
+            var spotifyPresent = $('.spotify-present-iframe');
+            var spotifyNext = $('.spotify-next-iframe');
+
+            try{
+                var previousSongSpotifyLink = data['previoussong']['spotifyLink'];
+                $(spotifyPrev).attr('src', previousSongSpotifyLink);
+                if(previousSongSpotifyLink == null || previousSongSpotifyLink == '' || previousSongSpotifyLink == undefined){
+                    spotifyNotFound(spotifyPrev);
+                }
+            }catch(err){
+                console.log(err.message);
+                spotifyNotFound(spotifyPrev);
+            }
+              try{
+                var songSpotifyLink = data['song']['spotifyLink'];
+                $(spotifyPresent).attr('src', songSpotifyLink);
+                if(songSpotifyLink == null || songSpotifyLink == '' || songSpotifyLink == undefined){
+                    spotifyNotFound(spotifyPresent);
+                }
+            }catch(err){
+                console.log(err.message);
+                spotifyNotFound(spotifyPresent);
+            }
+              try{
+                var nextSongSpotifyLink = data['nextsong']['spotifyLink'];
+                $(spotifyNext).attr('src', nextSongSpotifyLink);
+                if(nextSongSpotifyLink == null || nextSongSpotifyLink == '' || nextSongSpotifyLink == undefined){
+                    spotifyNotFound(spotifyNext);
+                }
+            }catch(err){
+                console.log(err.message);
+                spotifyNotFound(spotifyNext);
+            }
+
+            var youtubePrev = $('.youtube-prev-iframe');
+            var youtubePresent = $('.youtube-present-iframe');
+            var youtubeNext = $('.youtube-next-iframe');
+
+            try{
+                var previousSongYoutubeLink = data['previoussong']['youtubeLink'];
+                $(youtubePrev).attr('src', previousSongYoutubeLink);
+                if(previousSongYoutubeLink == null || previousSongYoutubeLink == '' || previousSongYoutubeLink == undefined){
+                    youtubeNotFound(youtubePrev);
+                }
+            }catch(err){
+                console.log(err.message);
+                youtubeNotFound(youtubePrev);
+            }
+             try{
+                var songYoutubeLink = data['song']['youtubeLink'];
+                $(youtubePresent).attr('src', songYoutubeLink);
+                if(songYoutubeLink == null || songYoutubeLink == '' || songYoutubeLink == undefined){
+                    youtubeNotFound(youtubePresent);
+                }
+            }catch(err){
+                console.log(err.message);
+                youtubeNotFound(youtubePresent);   
+            }
+             try{
+                var nextSongYoutubeLink = data['nextsong']['youtubeLink'];
+                $(youtubeNext).attr('src', nextSongYoutubeLink);
+                if(nextSongYoutubeLink == null || nextSongYoutubeLink == '' || nextSongYoutubeLink == undefined){
+                    youtubeNotFound(youtubeNext);
+                }
+            }catch(err){
+                console.log(err.message);
+                youtubeNotFound(youtubeNext);
+            }                
+        }
+    });
+
 }
