@@ -13,7 +13,7 @@ import com.mashape.unirest.http.options.Options;
  */
 
 public class YoutubeConsumer {
-	private static final String key = "AIzaSyCOHy5891gKLEv-KnOzC15k-z0tt6vZbWQ";
+	private static final String key = "YOUR GOOGLE API KEY HERE";
 	private static final String embedLink = "https://www.youtube.com/embed/";
 
 	// Fetches the search result for the given track title and artist. Returns a link to an embedabble youtube player for the given video.
@@ -32,7 +32,7 @@ public class YoutubeConsumer {
 			return embedLink + items.getJSONObject(0).getJSONObject("id").getString("videoId");
 		} catch (Exception e) {
 			System.out.println(e + " Youtube");
-			return "null";
+			return "";
 		}
 	}
 }
