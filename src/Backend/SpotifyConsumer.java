@@ -14,8 +14,8 @@ import org.json.JSONObject;
 
 public class SpotifyConsumer {
 	private static final String embedLink = "https://open.spotify.com/embed/track/";
-	private static final String client_id = "fb435518dac2475388699e465c3ad740";
-	private static final String client_secret = "e4f91cb42afc40cbba822bd73b81801b";
+	private static final String client_id = "YOUR SPOTIFY CLIENT ID";
+	private static final String client_secret = "YOUR SPOTIFY CLIENT SECRET";
 
 	// Trades id and password for an authorization token
 	private static String fetchToken(String client_id, String client_secret) {
