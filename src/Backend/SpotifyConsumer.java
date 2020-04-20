@@ -55,7 +55,7 @@ public class SpotifyConsumer {
 			return embedLink + obj.getJSONObject("tracks").getJSONArray("items").getJSONObject(0).getString("id");
 		} catch (Exception e) {
 			System.out.println(e + " Spotify");
-			return "null";
+			return null;
 		}
 	}
 }
